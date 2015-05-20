@@ -47,7 +47,7 @@ var app = {
         console.log('Received Event: ' + id);
         
         // Enable to debug issues.
-        // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+        window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
         var notificationOpenedCallback = function(jsonData) {
           alert("Notification received:\n" + JSON.stringify(jsonData));
