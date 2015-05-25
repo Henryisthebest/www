@@ -57,5 +57,17 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        
+        // Enable to debug issues.
+        window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+        var notificationOpenedCallback = function(jsonData) {
+          alert("Notification received:\n" + JSON.stringify(jsonData));
+          console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+        };
+        
+        window.plugins.OneSignal.init("212d934e-f18e-11e4-aa81-db7b3d8ce8a8",
+                                       {googleProjectNumber: "703322744261"},
+                                       notificationOpenedCallback);
     }
 };
